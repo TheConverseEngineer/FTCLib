@@ -1,6 +1,7 @@
 package com.arcrobotics.ftclib.hardware;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
+import com.qualcomm.robotcore.hardware.PwmControl;
 
 /**
  * An extended servo interface.
@@ -48,6 +49,15 @@ public interface ServoEx extends HardwareDevice {
      * @param position The location of the servo, which ranges from 0 to 1
      */
     void setPosition(double position);
+
+    /**
+     * Sets the pwm range used by this servo's controller.
+     * While the SDK defaults to a range of 600-2400 microseconds, most servos actually 
+     * support a range of 500-2500 microseconds, which can increase the travel.
+     *
+     * @param range The desired pwm range of this servo
+     */
+    void setPwmRange(PwmControl.PwmRange range);
 
     /**
      * Sets the range of the servo at specified angles.
